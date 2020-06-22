@@ -26,8 +26,8 @@
             <input type="radio" class="form-control" id="" name="gender" value="Perempuan">
         </div>
         <div class="form-group">
-            <label for="name">Tanggal Lahir:</label>
-            <input type="date" class="form-control" id="" name="born">
+            <label for="name">Usia(bulan)</label>
+            <input type="text" class="form-control" id="" name="age">
         </div>
         <div class="form-group">
             <label for="name">Tinggi Badan:</label>

@@ -26,3 +26,4 @@ Route::get('/dataAnak', function () {
 });
 
 Route::resource('babies', 'BabiesController');
+Route::get('fuzzy/{id}', 'FuzzysController@calculate');

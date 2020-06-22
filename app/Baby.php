@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Baby extends Model
 {
-    protected $fillable =['name','born','gender','height','weight','dad','mom','address'];
+    protected $fillable =['name','age','gender','height','weight','dad','mom','address'];
 
     public $timestamps = true;
 }

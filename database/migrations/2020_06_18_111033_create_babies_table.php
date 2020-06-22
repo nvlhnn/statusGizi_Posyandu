@@ -18,7 +18,7 @@ class CreateBabiesTable extends Migration
             $table->string('name', 255);
             $table->string('dad', 255);
             $table->string('mom', 255);
-            $table->date('born', 255);
+            $table->integer('age');
             $table->string('gender', 255);
             $table->string('address', 255);
             $table->integer('height');

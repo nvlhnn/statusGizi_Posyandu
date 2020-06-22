@@ -29,7 +29,7 @@ class BabiesController extends Controller
         $attributes=[
             'name' =>'Nama Bayi',
             'gender' => 'Jenis Kelamin',
-            'born' => 'Tanggal Lahir',
+            'age' => 'Usia',
             'height' => 'Tinggi Badan',
             'weight' => 'Berat Badan',
             'dad' => 'Nama Ayah',
@@ -41,7 +41,7 @@ class BabiesController extends Controller
         $this->validate($request,[
             'name' => 'required|alpha',
             'gender' => 'required',
-            'born' => 'required',
+            'age' => 'required',
             'height' => 'required|numeric',
             'weight' => 'required|numeric',
             'dad' => 'required|alpha',
@@ -53,7 +53,7 @@ class BabiesController extends Controller
         Baby::create([
             'name' => $request->name,
             'gender' => $request->gender,
-            'born' => $request->born,
+            'age' => $request->age,
             'height' => $request->height,
             'weight' => $request->weight,
             'dad' => $request->dad,
@@ -62,7 +62,9 @@ class BabiesController extends Controller
         ]);
         session()->flash('notif', 'Data berhasil ditambahkan');
 
-        return redirect()->route('baby.index');
+        return redirect()->route('babies.index');
 
     }
+
+    
 }

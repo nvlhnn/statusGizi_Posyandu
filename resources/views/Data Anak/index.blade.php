@@ -44,10 +44,10 @@
                                 <td style="text-align: center center">{{$no++}}</td>
                                 <td>{{ $p->name }}</td>
                                 <td>{{ $p->gender }}</td>
-                                <td>{{ $p->born}}</td>
+                                <td>{{ $p->age}}</td>
                                 <td>{{ $p->height }}</td>
                                 <td>{{ $p->weight}}</td>
-                                <td>{{ $p->status }}</td>
+                                <td><a href="{{ url('/fuzzy', $p->id) }}">status</a></td>
                                 <td>{{ $p->dad}}</td>
                                 <td>{{ $p->mom }}</td>
                                 <td>{{ $p->address }}</td>
