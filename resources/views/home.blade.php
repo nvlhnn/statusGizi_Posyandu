@@ -11,7 +11,7 @@
           <img src="/images/admin2.png" alt="..." style="width: 350px; height: 350px">
           <p>
               <a href="{{route('babies.index')}}" class="btn btn-primary btn-lg my-2 mx-2">Data Anak</a>
-              <a href="{{route('home')}}" class="btn btn-secondary btn-lg my-2 mx-2">Data Admin</a>
+              <a href="{{route('kader.index')}}" class="btn btn-secondary btn-lg my-2 mx-2">Data Admin</a>
               <a href="/fuzzy" class="btn btn-secondary btn-lg my-2 mx-2">hitung</a>
 
             </p>

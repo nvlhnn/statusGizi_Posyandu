@@ -88,9 +88,9 @@
                         </a>
                     </li>
                     <li class="nav-item" style="color: white">
-                        <a class="nav-link" href="{{ url('baby') }}" style="color: white">
+                        <a class="nav-link" href="{{ url('kader.index') }}" style="color: white">
                             <i class="address book outline icon" ></i>
-                            Tambah Admin
+                            Data Kader
                         </a>
                     </li>
                 </ul>
