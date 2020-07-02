@@ -88,7 +88,7 @@
                         </a>
                     </li>
                     <li class="nav-item" style="color: white">
-                        <a class="nav-link" href="{{ url('kader.index') }}" style="color: white">
+                        <a class="nav-link" href="{{ url('kader') }}" style="color: white">
                             <i class="address book outline icon" ></i>
                             Data Kader
                         </a>

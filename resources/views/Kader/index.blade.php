@@ -11,9 +11,9 @@
                             <input class="form-control" type="search" id="search" placeholder="Search" aria-label="Search" style="width: 350px">
                         </li>
                         <li class="list-inline-item" style="margin-left: 540px">
-                            <a href="{{route('register')}}" class="btn btn-primary">
+                            <a href="{{route('kader.create')}}" class="btn btn-primary">
                                 <i class="plus icon"></i>
-                                Tambah Data Anak
+                                Tambah Kader
                             </a>
                         </li>
                     </ul>

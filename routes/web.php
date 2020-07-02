@@ -27,4 +27,6 @@ Route::get('/dataAnak', function () {
 
 Route::resource('babies', 'BabiesController');
 Route::resource('kader', 'KaderController');
+
+Route::post('/kader/create', 'KaderController@create');
 Route::get('fuzzy/{id}', 'FuzzysController@calculate');

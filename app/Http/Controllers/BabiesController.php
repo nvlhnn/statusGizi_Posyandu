@@ -11,7 +11,12 @@ class BabiesController extends Controller
     public function index()
     {
         $baby = baby::paginate(4);
-        return view('Data Anak/index', ['baby'=>$baby]);
+        return view('Data Anak/index', compact('baby'));
+
+        // $baby = baby::all();
+        // $d =  \Carbon\Carbon::parse($baby[0]->born)->diff(\Carbon\Carbon::now())->format('%m');
+        // dd($d);
+
     }
     public function create()
     {
@@ -29,7 +34,7 @@ class BabiesController extends Controller
         $attributes=[
             'name' =>'Nama Bayi',
             'gender' => 'Jenis Kelamin',
-            'age' => 'Usia',
+            'born' => 'Usia',
             'height' => 'Tinggi Badan',
             'weight' => 'Berat Badan',
             'dad' => 'Nama Ayah',
@@ -41,7 +46,7 @@ class BabiesController extends Controller
         $this->validate($request,[
             'name' => 'required|alpha',
             'gender' => 'required',
-            'age' => 'required',
+            'born' => 'required',
             'height' => 'required|numeric',
             'weight' => 'required|numeric',
             'dad' => 'required|alpha',
@@ -53,7 +58,7 @@ class BabiesController extends Controller
         Baby::create([
             'name' => $request->name,
             'gender' => $request->gender,
-            'age' => $request->age,
+            'born' => $request->born,
             'height' => $request->height,
             'weight' => $request->weight,
             'dad' => $request->dad,

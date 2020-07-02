@@ -13,7 +13,10 @@ class FuzzysController extends Controller
     {
  
         $data = Baby::find($id);  
-            $age    = $data->age;
+
+        $d =  \Carbon\Carbon::parse($data->born)->diff(\Carbon\Carbon::now())->format('%m');
+
+            $age    = $d;
             $gender = $data->gender;
             $height = $data->height;
             $weight = $data->weight;

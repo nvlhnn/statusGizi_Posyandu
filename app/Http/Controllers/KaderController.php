@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class KaderController extends Controller
 {
@@ -26,7 +31,7 @@ class KaderController extends Controller
      */
     public function create()
     {
-
+             return view('kader.register');  
     }
     /**
      * Store a newly created resource in storage.
@@ -34,9 +39,15 @@ class KaderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $data)
     {
-        //
+        User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);    
+        
+        return redirect()->route('kader.index');
     }
 
     /**

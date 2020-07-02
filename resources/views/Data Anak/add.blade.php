@@ -20,14 +20,28 @@
            <label for="name">Nama Bayi:</label>
            <input type="text" class="form-control" id="" name="name">
        </div>
-       <div class="form-group">
-            <label for="name">Jenis Kelamin:</label>
-            <input type="radio" class="form-control" id="" name="gender" value="Laki-Laki">
-            <input type="radio" class="form-control" id="" name="gender" value="Perempuan">
-        </div>
+        <fieldset class="form-group">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0">Jenis Kelamin</legend>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="Laki-Laki" checked>
+                  <label class="form-check-label" for="gridRadios1">
+                    Laki-Laki
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gender" id="gridRadios2" value="Perempuan">
+                  <label class="form-check-label" for="gridRadios2">
+                    Perempuan
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
         <div class="form-group">
-            <label for="name">Usia(bulan)</label>
-            <input type="text" class="form-control" id="" name="age">
+            <label for="name">Tanggal Lahir:</label>
+            <input type="date" class="form-control" id="" name="born">
         </div>
         <div class="form-group">
             <label for="name">Tinggi Badan:</label>

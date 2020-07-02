@@ -35,16 +35,14 @@
                                 <th scope="col" style="font-size: 17px;">Ibu</th>
                             </tr>
                         </thead>
-                        @php
-                            $no=1;
-                        @endphp
+
                         <tbody id="tabel">
                             @foreach($baby as $p)
                             <tr style="position: center center">
-                                <td style="text-align: center center">{{$no++}}</td>
+                                <td>{{$p->id}}</td>
                                 <td>{{ $p->name }}</td>
                                 <td>{{ $p->gender }}</td>
-                                <td>{{ $p->age}}</td>
+                                <td>{{ $p->born}}</td>
                                 <td>{{ $p->height }}</td>
                                 <td>{{ $p->weight}}</td>
                                 <td><a href="{{ url('/fuzzy', $p->id) }}">status</a></td>
@@ -62,6 +60,8 @@
                             </tr>
                             @endforeach
                         </tbody>
+                    </table>
+                    {{ $baby->links() }}
                 </div>
             </div>
         </div>
