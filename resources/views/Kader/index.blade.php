@@ -24,7 +24,6 @@
                                 <th scope="col" style="font-size: 17px;">Nama</th>
                                 <th scope="col" style="font-size: 17px;">Email</th>
                                 <th scope="col" style="font-size: 17px;">Terdaftar Sejak</th>
-                                <th colspan="2" scope="col" style="font-size: 17px; width: 150px">Aksi</th>
                             </tr>
                         </thead>
                         @php
@@ -37,14 +36,6 @@
                                 <td>{{ $p->name }}</td>
                                 <td>{{ $p->email }}</td>
                                 <td>{{ $p->created_at}}</td>
-                                <td >
-                                    <form action="{{ route('kader.destroy', $p->id)}}" method="post" class="d-inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" style="background-color: transparent; border: 0;" onclick="return confirm('Yakin hapus');">Hapus<i class="red trash alternate icon"></i></button>
-                                    </form>   
-
-                                </td>
                             </tr>
                             @endforeach
                         </tbody>

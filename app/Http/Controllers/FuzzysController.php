@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
 use App\Baby;
+use App\Status;
+use DB;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
  
  
 class FuzzysController extends Controller
@@ -14,8 +19,11 @@ class FuzzysController extends Controller
  
         $data = Baby::find($id);  
 
-        $d =  \Carbon\Carbon::parse($data->born)->diff(\Carbon\Carbon::now())->format('%m');
+        // $d =  \Carbon\Carbon::parse($data->born)->diff(\Carbon\Carbon::now())->format('%m');
+        $date = Carbon::parse($data->born);
+        $now = Carbon::now();
 
+        $d = $date->diffInMonths($now);
             $age    = $d;
             $gender = $data->gender;
             $height = $data->height;
@@ -39,6 +47,8 @@ class FuzzysController extends Controller
             $fase2= ($age-6 ) / 6;
         }elseif(12<=$age && $age<=24){
             $fase2= (24-$age)/12;
+        }else{
+            $fase2 = 0;
         }            
 
         //fase3
@@ -48,7 +58,9 @@ class FuzzysController extends Controller
             $fase3= ($age-12 ) / 12;
         }elseif(24<=$age && $age<=36){
             $fase3 =(36-$age)/12;
-        };            
+        }else{
+            $fase3 = 0;
+        }           
        
         //fase4
         if($age <= 24){
@@ -57,7 +69,9 @@ class FuzzysController extends Controller
             $fase4= ($age-24 ) / 12;
         }elseif(36<=$age && $age<=48){
             $fase4 =(48-$age)/12;
-        };         
+        }else{
+            $fase4 = 0;
+        }    
        
 
         //fase5
@@ -355,19 +369,44 @@ class FuzzysController extends Controller
         $z[44]=giziNormal($alfa[44]);
 
 
-        // return dd($z);
 
         $temp1 = 0;
         $temp2 = 0;
         $hasil = 0;
 
-        for($i=0; $i < 18; $i++){
+        for($i=0; $i < count($alfa); $i++){
             $temp1 = $temp1 + $alfa[$i] * $z[$i];
             $temp2 = $temp2 + $alfa[$i];
         }
 
         $hasil = $temp1 / $temp2;
-        return $hasil;
+        // return $hasil;
+
+        if ($hasil<55) {
+            $status = "Gizi Buruk";
+            $saran  = "Perbanyak konsumsi makanan bergizi dengan kandungan DHA, Omega-3, Zat Besi dan Seng yaa.";
+        }elseif($hasil>=55 && $hasil<=61.5){
+            $status = "Normal";
+            $saran = "Selalu menjaga pola makan agar tetap sehat yaa";
+        }elseif($hasil>61.5){
+            $status = "Obesitas";
+            $saran = "Perbanyak aktivitas dan kurangi mengonsumsi makanan tinggi gula dan kolesterol yaa";
+        }
+        
+
+        Status::create([
+            'baby_id' => $data->id,
+            'user_id' => auth()->id(),
+            'status' => $status,
+            'height' => $height,
+            'weight' => $weight,
+            'age' => $age,
+            'index' => $hasil, 
+            'saran' => $saran
+        ]);
+
+        return view('Data Anak/status2', compact('data', 'status','saran'));
+
 
             
     }

@@ -49,7 +49,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color:#245B43;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -60,6 +60,12 @@
 
             .m-b-md {
                 margin-bottom: 30px;
+                color:#245B43;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-weight: 500;
+
+
             }
         </style>
     </head>
@@ -76,8 +82,16 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Poscandu
+                <div>
+                @if (Route::has('login'))
+                    <div>
+                        @auth
+                            <a class="title m-b-md" href="{{ url('/home') }}">Poscancu</a>
+                        @else
+                            <a class="title m-b-md" href="{{ route('login') }}">Poscandu</a>
+                        @endauth
+                    </div>
+                @endif
                 </div>
             </div>
         </div>

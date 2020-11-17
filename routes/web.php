@@ -25,8 +25,14 @@ Route::get('/dataAnak', function () {
     return view('Data Anak/Index');
 });
 
-Route::resource('babies', 'BabiesController');
-Route::resource('kader', 'KaderController');
+Route::resource('babies', 'BabiesController')->middleware('auth');;
+Route::resource('kader', 'KaderController')->middleware('auth');;
+Route::resource('fuzzys', 'FuzzysController')->middleware('auth');;
+Route::resource('statuses', 'StatusesController')->middleware('auth');;
+Route::get('statuses/riwayat/{id}', 'StatusesController@riwayat')->middleware('auth');;
+Route::get('statuses/riwayat/cetak/{id}', 'StatusesController@cetak')->middleware('auth');;
 
-Route::post('/kader/create', 'KaderController@create');
-Route::get('fuzzy/{id}', 'FuzzysController@calculate');
+
+
+Route::post('/kader/create', 'KaderController@create')->middleware('auth');;
+Route::get('fuzzy/{id}', 'FuzzysController@calculate')->middleware('auth');;

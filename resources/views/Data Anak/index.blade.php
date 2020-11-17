@@ -24,10 +24,11 @@
                                 <th rowspan="2" style="font-size: 17px;">Nama Bayi</th>
                                 <th rowspan="2" scope="col" style="font-size: 17px;">Jenis Kelamin</th>
                                 <th rowspan="2" style="font-size: 17px;">Tanggal Lahir</th>                                
-                                <th rowspan="2" scope="col" style="font-size: 17px;">Tinggi Badan</th>
+                                <th rowspan="2" scope="col" style="font-size: 17px;">Panjang Badan</th>
                                 <th rowspan="2" scope="col" style="font-size: 17px;">Berat Badan</th>
                                 <th rowspan="2" scope="col" style="font-size: 17px;">Status Gizi</th>                                
-                                <th colspan="2" scope="col" style="font-size: 17px;">Nama Orang Tua</th>                                <th rowspan="2" scope="col" style="font-size: 17px;">Alamat</th>
+                                <th colspan="2" scope="col" style="font-size: 17px;">Nama Orang Tua</th>                               
+                                <th rowspan="2" scope="col" style="font-size: 17px;">Alamat</th>
                                 <th rowspan="2" scope="col" style="font-size: 17px; width: 150px">Aksi</th>
                             </tr>
                             <tr>
@@ -43,9 +44,9 @@
                                 <td>{{ $p->name }}</td>
                                 <td>{{ $p->gender }}</td>
                                 <td>{{ $p->born}}</td>
-                                <td>{{ $p->height }}</td>
-                                <td>{{ $p->weight}}</td>
-                                <td><a href="{{ url('/fuzzy', $p->id) }}">status</a></td>
+                                <td>{{ $p->height }} cm</td>
+                                <td>{{ $p->weight}} kg</td>
+                                <td><a href="{{ route('statuses.show', $p->id) }}">status</a></td>
                                 <td>{{ $p->dad}}</td>
                                 <td>{{ $p->mom }}</td>
                                 <td>{{ $p->address }}</td>

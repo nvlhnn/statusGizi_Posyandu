@@ -2,9 +2,12 @@
 
 @section('content')
     <div class="container">
+      <div class="row justify-content-center">
+        <div class="card w-50 ml-5 mr-5">
+          <div class="card-header text-center mb-5">
+            <h1>Ubah Data Anak</h1>
+          </div>
    <!-- Remove This Before You Start -->
-   <h1>Tambah Data Anak</h1>
-   <hr>
    @if (count($errors) > 0)
    <div class="alert alert-danger">
        <ul>
@@ -14,7 +17,7 @@
        </ul>
    </div>
    @endif
-   <form action="{{ route('babies.update', $baby->id) }}" method="post" enctype="multipart/form-data">
+   <form action="{{ route('babies.update', $baby->id) }}" method="post" enctype="multipart/form-data" class="ml-5 mr-5 mb-5">
     {{ csrf_field() }}
     @method('PUT')
        <div class="form-group">
@@ -45,7 +48,7 @@
             <input type="date" class="form-control" id="" name="born" value="{{$baby->born}}">
         </div>
         <div class="form-group">
-            <label for="name">Tinggi Badan:</label>
+            <label for="name">Panjang Badan:</label>
             <input type="text" class="form-control" id="" name="height" value="{{$baby->height}}">
         </div>                
        <div class="form-group">
@@ -65,10 +68,16 @@
             <textarea class="form-control" id="alamat" name="address" value="">{{$baby->address}}</textarea>
         </div>
        <div class="form-group">
-           <button type="submit" class="btn btn-md btn-primary">Submit</button>
-           <button type="reset" class="btn btn-md btn-danger">Cancel</button>
+           <button style="float: right" type="submit" class="btn btn-md btn-success">Submit</button>
        </div>
    </form>
+  </div>
+</div>
+<div class="row w-100 justify-content-end">
+  <a href="{{ url()->previous() }}" class="btn btn-primary" style="float: right"> Kembali </a>
+
+</div>
+
 
     </div>
 @endsection
